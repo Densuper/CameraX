@@ -18,6 +18,12 @@ This project is a lightweight open-source Android camera app built with CameraX 
 
 Open this folder in Android Studio (Hedgehog or newer), let Gradle sync, and run on a device with camera and gyro.
 
+## Download APK
+
+- Repository: https://github.com/Densuper/CameraX
+- Release: https://github.com/Densuper/CameraX/releases/tag/v1.0
+- Direct APK: https://github.com/Densuper/CameraX/releases/download/v1.0/app-debug.apk
+
 ## Notes
 
 - This implementation locks output orientation per clip; it does not apply full per-frame re-warp stabilization.
