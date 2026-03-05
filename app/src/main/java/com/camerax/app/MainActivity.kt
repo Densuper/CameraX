@@ -564,7 +564,7 @@ class MainActivity : AppCompatActivity() {
         )
         if (timerSeconds > 0) flags.add("TIMER ${timerSeconds}s")
         if (selectedAwbMode != android.hardware.camera2.CaptureRequest.CONTROL_AWB_MODE_AUTO) flags.add("WB")
-        if (xcodeProcessingEnabled) flags.add("XCODE")
+        if (xcodeProcessingEnabled) flags.add("MULTI")
         if (enhancedShotEnabled) flags.add("ENH")
         binding.settingsStateText.text = flags.joinToString(" · ")
     }
@@ -1145,8 +1145,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun captureBurstCompositePhoto(capture: ImageCapture) {
-        binding.statusText.text = "Xcode pre-burst..."
-        val burstFolder = File(cacheDir, "xcode_burst").apply { mkdirs() }
+        binding.statusText.text = "Multi-frame pre-capture..."
+        val burstFolder = File(cacheDir, "multiframe_burst").apply { mkdirs() }
         // Two immediate preframes + one main frame.
         val frameFiles = (0 until burstFrameCount).map { index ->
             File(burstFolder, "frame_${System.currentTimeMillis()}_$index.jpg")
@@ -1177,20 +1177,20 @@ class MainActivity : AppCompatActivity() {
                         val savedUri = persistPhotoToMediaStore(finalTempFile)
                         if (savedUri != null) {
                             binding.statusText.text = if (isFrontCameraActive) {
-                                "Selfie saved (Xcode)"
+                                "Selfie saved (multi-frame)"
                             } else {
-                                "Photo saved (Xcode)"
+                                "Photo saved (multi-frame)"
                             }
-                            LogFileManager.append(this, "photo_saved_xcode_uri=$savedUri")
+                            LogFileManager.append(this, "photo_saved_multiframe_uri=$savedUri")
                             refreshGalleryThumbnailAsync()
                         } else {
                             binding.statusText.text = "Photo saved (local only)"
                             Toast.makeText(this, "Gallery save failed", Toast.LENGTH_LONG).show()
-                            LogFileManager.append(this, "photo_saved_xcode_local=${finalTempFile.absolutePath}")
+                            LogFileManager.append(this, "photo_saved_multiframe_local=${finalTempFile.absolutePath}")
                         }
                     } else {
                         binding.statusText.text = "Photo failed"
-                        Toast.makeText(this, "Xcode merge failed", Toast.LENGTH_LONG).show()
+                        Toast.makeText(this, "Multi-frame merge failed", Toast.LENGTH_LONG).show()
                     }
                     finalTempFile.delete()
                 }

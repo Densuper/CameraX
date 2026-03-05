@@ -796,7 +796,7 @@
     <issue
         id="SetTextI18n"
         message="String literal in `setText` can not be translated. Use Android resources instead."
-        errorLine1="        binding.statusText.text = &quot;Xcode processing...&quot;"
+        errorLine1="        binding.statusText.text = &quot;Multi-frame processing...&quot;"
         errorLine2="                                   ~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/java/com/camerax/app/MainActivity.kt"
@@ -1367,8 +1367,8 @@
 
     <issue
         id="HardcodedText"
-        message="Hardcoded string &quot;Xcode Processing&quot;, should use `@string` resource"
-        errorLine1="        android:text=&quot;Xcode Processing&quot;"
+        message="Hardcoded string &quot;Multi-frame Processing&quot;, should use `@string` resource"
+        errorLine1="        android:text=&quot;Multi-frame Processing&quot;"
         errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout/dialog_settings.xml"
