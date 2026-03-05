@@ -66,6 +66,7 @@ import androidx.camera.video.Recording
 import androidx.camera.video.VideoCapture
 import androidx.camera.video.VideoRecordEvent
 import androidx.core.content.ContextCompat
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.media3.common.MediaItem
 import androidx.media3.common.util.UnstableApi
 import androidx.media3.effect.Presentation
@@ -270,6 +271,7 @@ class MainActivity : AppCompatActivity() {
     private val isUiLockedToPortrait = true
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        installSplashScreen()
         super.onCreate(savedInstanceState)
         CrashLogger.install(this)
         LogFileManager.startSession(this)

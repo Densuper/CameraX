@@ -1,9 +1,12 @@
 # CameraX (Android)
 
+![CameraX Logo](docs/camerax-logo.svg)
+
 This project is a lightweight open-source Android camera app built with CameraX and a gyroscope-assisted lock mode.
 
 ## Features
 
+- Splash screen with custom CameraX logo
 - Live camera preview
 - Video recording (saved to gallery)
 - `Gyro Lock` button above record button
